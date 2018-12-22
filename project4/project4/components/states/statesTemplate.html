@@ -1,2 +1,14 @@
 <!--Replaced this with the Angular template for states component of CS142 Project #4
     Problem #2.-->
+
+<div>
+	<h1>CS142 Project#4 Find States with Given Substring</h1>
+    <div class="state-query-str">
+		<!--Input box to enter the substring to query -->        
+		State: <input type="text" ng-model="queryString"></label>
+        <button ng-click="filterStates(queryString)">Search</button>
+    </div>
+    <li class="state-list" ng-repeat="state in candidateStates">
+      {{state}}
+    </li>
+</div>

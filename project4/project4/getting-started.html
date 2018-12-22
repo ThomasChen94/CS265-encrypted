@@ -14,11 +14,14 @@ controller named MainController.-->
         <!--Include the controllers and models for all the view templates we are using.  Currently
         that is only the example component.-->
         <script src="components/example/exampleController.js"></script>
+        <script src="components/header/headerController.js"></script>
         <link rel="stylesheet" type="text/css" href="components/example/example.css" />
+        <link rel="stylesheet" type="text/css" href="components/header/header.css" />
         <script src="modelData/example.js"></script>
     </head>
     <body>
-        <div class="header"></div> <!-- Your problem #1 header widget goes here-->
+        <header ng-include="'components/header/headerTemplate.html'" ng-controller="HeaderController"></header>
+        <header class='guigui'>{{main.name}}: {{main.motto}}</header>
 
         <!--Include the example view template in this div. This will result in the
         controller (ExampleController) being started and the template inserted and
