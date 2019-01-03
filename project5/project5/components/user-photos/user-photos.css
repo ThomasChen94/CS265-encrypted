@@ -1,0 +1,23 @@
+.user-images {
+  margin-top: 3%;
+  margin-left: 3%;
+  text-align:left;
+}
+
+.user-images img {
+  width: 93%;
+}
+
+.user-images table {
+  table-layout: fixed;
+  width: 100%;
+}
+
+.user-images table td {
+    word-wrap: break-word;         /* All browsers since IE 5.5+ */
+    overflow-wrap: break-word;     /* Renamed property in CSS3 draft spec */
+}
+
+.photo-comments {
+  margin-top: 5%;
+}
