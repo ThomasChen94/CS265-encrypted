@@ -8,13 +8,14 @@ cs142App.controller('UserDetailController', ['$scope', '$routeParams',
      */
     var userId = $routeParams.userId;
 
-    $scope.user = window.cs142models.userModel(userId);
+    function setUserDetail(responseData) {
+      $scope.$apply(function() {
+        $scope.user = responseData;
+        $scope.main.pageInfo = $scope.user.first_name + " " + $scope.user.last_name;
+        console.log('UserDetail of ', userId);
+        console.log($scope.user);
+      });
+    }
 
-    $scope.main.pageInfo = $scope.user.first_name + " " + $scope.user.last_name;
-    
-    console.log('UserDetail of ', userId);
-
-    console.log('window.cs142models.userModel($routeParams.userId)',
-        window.cs142models.userModel(userId));
-
+    $scope.FetchModel("/user/" + userId, setUserDetail);
   }]);

@@ -8,15 +8,19 @@ cs142App.controller('UserPhotosController', ['$scope', '$routeParams',
      */
     var userId = $routeParams.userId;
 
-    var user = window.cs142models.userModel(userId);
+    $scope.FetchModel("/user/" + userId, function(responseData) {
+      $scope.$apply(function() {
+        $scope.main.pageInfo = "Photo of " + responseData.first_name + 
+            " " + responseData.last_name;
+      });
+    });
 
-    $scope.userPhotos = window.cs142models.photoOfUserModel(userId);
-
-    $scope.main.pageInfo = "Photo of " + user.first_name + " " + user.last_name;
-
-    console.log('UserPhoto of ', $routeParams.userId);
-
-    console.log('window.cs142models.photoOfUserModel($routeParams.userId)',
-       window.cs142models.photoOfUserModel(userId));
-
+    function setUserPhoto(responseData) {
+      $scope.$apply(function() {
+        $scope.userPhotos = responseData;
+        console.log('UserPhoto of ', $routeParams.userId);
+        console.log($scope.userPhotos);
+      });
+    }
+    $scope.FetchModel("/photosOfUser/" + userId, setUserPhoto);
   }]);
