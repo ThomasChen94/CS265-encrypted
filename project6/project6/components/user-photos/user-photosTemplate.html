@@ -1,0 +1,23 @@
+<div class='user-images'>
+  <table>
+    <col width=65%>
+    <col width=35%>
+    <tr ng-repeat="photo in userPhotos">
+      <td><img ng-src="images/{{photo.file_name}}" alt="{{photo.file_name}}"></td>
+      <td>
+        Image Taken At: {{photo.date_time}}
+        <div class='photo-comments' ng-repeat='comment in photo.comments'>
+          <i>{{comment.comment}}</i>><br>
+
+          <font size="2">
+            Comment By: <a ng-href="#!users/{{comment.user._id}}">{{comment.user.first_name}} {{comment.user.last_name}}</a> 
+          </font><br>
+
+          <font size="2">
+            Comment Created: {{comment.date_time}} 
+          </font><br> 
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>

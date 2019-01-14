@@ -1,0 +1,15 @@
+<!doctype html>
+  <div class='user-detail' ng-if="showUserDetail">
+      Name: {{user.first_name}} {{user.last_name}} <br>
+      Location: {{user.location}} <br>
+      Description: {{user.description}} <br>
+      Occupation: {{user.occupation}} <br>
+  </div>
+  <div class='user-detail-illegal' ng-if="showUserDetail==false">
+      Cannot find user! <br>
+  </div>
+
+  <div class='photo-link'>
+    <a ng-href="#!photos/{{user._id}}">Photo Booth</a>
+  </div>
+</html>
